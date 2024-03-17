@@ -30,6 +30,10 @@ connection.connect(function (error) {
   console.log("database successfuly connected..");
 });
 
+app.get("/", (req, resp) => {
+  resp.send("hello");
+});
+
 app.post("/register", async (request, response) => {
   const { username, password, name } = request.body;
   const modifyPassword = await bcrypt.hash(password, 10);
