@@ -4,6 +4,10 @@ const bcrypt = require("bcrypt");
 const cors = require("cors");
 const app = express();
 
+dotenv.config({
+  path: "./data/config.env",
+});
+
 app.use(express.json());
 
 app.use(
@@ -155,4 +159,6 @@ app.post("/getalldata", (req, resp) => {
   );
 });
 
-app.listen(5000, () => console.log("server is running 5000 port"));
+server.listen(process.env.PORT, () =>
+  console.log(`server is running port ${process.env.PORT}`)
+);
