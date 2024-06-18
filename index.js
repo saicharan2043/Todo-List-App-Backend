@@ -3,7 +3,6 @@ const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const path = require("path");
 const dbPath = path.join(__dirname, "Todos.db");
-const mysql = require("mysql");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -33,19 +32,6 @@ const initializeDBAndServer = async () => {
   }
 };
 initializeDBAndServer();
-
-// const connection = mysql.createConnection({
-//   host: "db4free.net",
-//   port: 3306,
-//   user: "shiva_kumar",
-//   password: "sai@1234",
-//   database: "user_details_db",
-// });
-
-// connection.connect(function (error) {
-//   if (error) throw error;
-//   console.log("database successfuly connected..");
-// });
 
 app.get("/", (req, resp) => {
   resp.send("hello");
